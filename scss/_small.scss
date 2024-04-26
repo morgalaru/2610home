@@ -1,0 +1,129 @@
+/* Prevent adjustments of font size after orientation changes.  */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    height: 100%;
+}
+  
+/*---- apply a natural box layout model to all elements -------*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font-family: $defaultFont;
+    font-weight: $normalWeight;
+    color: $fontColor;
+    background-color: #ebeae0;
+    h1, h2{
+        font-family: $headingFont;
+    }
+}
+
+
+// HEADER
+#headerWrapper {
+    background-color: $secondaryColor;
+    color: $fontColor;
+}
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 1rem $gutter;
+    gap: 10px;
+    h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: $boldWeight;
+    }
+    p {text-align: right; font-weight: $boldWeight;}
+} // end header
+
+
+// NAV
+#navWrapper {
+    background-color: $primaryColor;
+}
+
+nav {
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        li {flex:1;}
+    }
+
+    ul li a {
+        display: block;
+        padding: 0.75rem;
+        color: $backgroundColor;
+        font-weight:300;
+        text-align: center;
+        text-decoration: none;
+    }
+     ul li a:hover {background-color: lighten($primaryColor, 8%);}
+}// end nav
+
+//main
+main h1, main p {color: $primaryColor; margin-left: $gutter;}
+
+.cards {
+    section a{
+        display: grid;
+        margin: 1rem;
+        background-color: $backgroundColor;
+        border-radius: 10px;
+        grid-template-areas: 
+        "photo title"
+        "photo info";
+        column-gap: $gutter;
+        grid-template-columns: 150px auto;
+        text-decoration: none;
+        color: $fontColor;
+        &:hover {background-color: darken($backgroundColor, 2%); border: 1px solid rgba(74, 88, 70, .5)}
+    }
+    img, ul {padding: 0 1rem;}
+    h2 {padding: 0; margin-bottom: 4px;}
+    img{
+        grid-area: photo;
+        width: 100%;
+        height: auto;
+        margin:.5rem;
+    }
+    h2{
+        grid-area: title;
+        font-family: $headingFont;
+        color: $primaryColor;
+        font-size: 1.2rem;
+    }
+    ul{
+        grid-area: info;
+        margin-top: 0;
+    }
+ 
+}
+
+
+
+
+
+
+
+
+// begin footer
+#footerWrapper {
+    background-color: #99a496;
+    padding: .8rem $gutter;
+    p {
+        margin: 0;
+        font-weight: $lightWeight;
+        color: #333;
+        text-align: center;
+    }
+}
